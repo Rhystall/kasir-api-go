@@ -133,6 +133,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err.Error())
 	}
+
+	router.Run(":" + os.Getenv("PORT"))
 }
 
 func loadEnv() {
@@ -182,6 +184,4 @@ func authMiddleware(authService auth.Service, userService service.UserService) g
 
 		c.Set("currentUser", user)
 	}
-
-	router.Run(":" + os.Getenv("PORT"))
 }
