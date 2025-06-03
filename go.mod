@@ -2,8 +2,6 @@ module api-kasirapp
 
 go 1.22
 
-toolchain go1.23.2
-
 require (
 	github.com/joho/godotenv v1.5.1
 	golang.org/x/crypto v0.28.0
