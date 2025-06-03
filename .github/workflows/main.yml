@@ -60,7 +60,7 @@ jobs:
           port: 22
           script: |
             echo "📦 Pulling latest code..."
-            cd /home/deploy-user/kelompok4-kasir
+            cd /root/kelompok4-kasir
             git pull origin main
 
             echo "🔧 Building Go app..."
@@ -69,3 +69,5 @@ jobs:
             echo "🚀 Restarting service..."
             pkill app || true
             nohup ./app > log.txt 2>&1 &
+
+            
