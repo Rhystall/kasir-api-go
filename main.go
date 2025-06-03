@@ -129,19 +129,19 @@ func main() {
 	api.GET("/export/suppliers", authMiddleware(authService, userService), supplierHandler.ExportSuppliers)
 	api.POST("/import/suppliers", authMiddleware(authService, userService), supplierHandler.ImportSuppliers)
 
-	err = router.Run()
+	err = router.Run(":" + os.Getenv("PORT"))
 	if err != nil {
 		log.Fatal(err.Error())
 	}
 
-	router.Run(":" + os.Getenv("PORT"))
 }
 
-err = router.Run(":" + os.Getenv("PORT"))
-if err != nil {
-    log.Fatal(err.Error())
+func loadEnv() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 }
-
 
 func authMiddleware(authService auth.Service, userService service.UserService) gin.HandlerFunc {
 	return func(c *gin.Context) {
