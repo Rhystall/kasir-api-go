@@ -183,4 +183,5 @@ func authMiddleware(authService auth.Service, userService service.UserService) g
 		c.Set("currentUser", user)
 	}
 
+	router.Run(":" + os.Getenv("PORT"))
 }
