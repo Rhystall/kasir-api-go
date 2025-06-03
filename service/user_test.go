@@ -35,6 +35,11 @@ func (m *mockUserRepository) ActivateUser(ID int) (models.User, error) {
 	return models.User{}, nil
 }
 
+func (m *mockUserRepository) FindByPhone(phone string) (models.User, error) {
+	return models.User{}, nil
+}
+
+
 func TestIsEmailAvailable(t *testing.T) {
 	t.Run("Email Available", func(t *testing.T) {
 		mockRepo := &mockUserRepository{
