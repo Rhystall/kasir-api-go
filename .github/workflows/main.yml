@@ -63,6 +63,10 @@ jobs:
             cd /root/kasir-api-go
             git pull origin main
 
+            echo "📌 Setting Go 1.22 path..."
+            export PATH=/usr/local/go/bin:$PATH
+            go version
+
             echo "🔧 Building Go app..."
             go build -o app
 
