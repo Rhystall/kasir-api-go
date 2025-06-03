@@ -25,7 +25,7 @@ func main() {
 	loadEnv()
 	host := os.Getenv("DB_HOST")
 	username := os.Getenv("DB_USER")
-	password := os.Getenv("DB_PASSWORD")
+	password := os.Getenv("DB_PASS")
 	databaseName := os.Getenv("DB_NAME")
 	port := os.Getenv("DB_PORT")
 	secretKey := os.Getenv("SECRET_KEY")
