@@ -87,9 +87,7 @@ func main() {
 	api.POST("/transactions", authMiddleware(authService, userService), transactionHandler.CreateTransaction)
 	api.POST("/product-image/:id", authMiddleware(authService, userService), productHandler.UploadProductImage)
 
-	api.GET("/ping", func(c *gin.Context) {
-    c.JSON(200, gin.H{"message": "Dah jalan 🏓"})
-})
+	api.GET("/ping", func(c *gin.Context) {c.JSON(200, gin.H{"message": "Dah jalan 🏓"})})
 	api.GET("/categories", authMiddleware(authService, userService), categoryHandler.GetCategories)
 	api.GET("/categories/:id", authMiddleware(authService, userService), categoryHandler.GetCategoryById)
 	api.GET("/products", authMiddleware(authService, userService), productHandler.GetProducts)
