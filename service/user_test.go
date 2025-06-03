@@ -23,6 +23,10 @@ func (m *mockUserRepository) Save(user models.User) (models.User, error) {
 	return models.User{}, nil
 }
 
+func (m *mockUserRepository) Update(user models.User) (models.User, error) {
+	return models.User{}, nil
+}
+
 func (m *mockUserRepository) FindByID(id int) (models.User, error) {
 	return models.User{}, nil
 }
