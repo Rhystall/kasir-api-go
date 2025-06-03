@@ -137,12 +137,11 @@ func main() {
 	router.Run(":" + os.Getenv("PORT"))
 }
 
-func loadEnv() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+err = router.Run(":" + os.Getenv("PORT"))
+if err != nil {
+    log.Fatal(err.Error())
 }
+
 
 func authMiddleware(authService auth.Service, userService service.UserService) gin.HandlerFunc {
 	return func(c *gin.Context) {
