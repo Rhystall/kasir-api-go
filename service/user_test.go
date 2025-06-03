@@ -35,7 +35,7 @@ func (m *mockUserRepository) ActivateUser(ID int) (models.User, error) {
 	return models.User{}, nil
 }
 
-func (m *mockUserRepository) FindByPhone(phone string) (models.User, error) {
+func (m *mockUserRepository) FindByPhone(phone int) (models.User, error) {
 	return models.User{}, nil
 }
 
