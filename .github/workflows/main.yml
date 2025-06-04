@@ -24,8 +24,16 @@ jobs:
       - name: Run tests with coverage
         run: |
           go test ./service -coverprofile=coverage.out
-          go tool cover -func=coverage.out | grep -v '0.0%'
+          go tool cover -func=coverage.out > coverage-summary.txt
 
+          # Tampilkan detail per fungsi
+          cat coverage-summary.txt
+
+          # Hitung total statement & covered statement
+          total=$(cat coverage-summary.txt | grep -v "^mode:" | wc -l)
+          covered=$(cat coverage-summary.txt | grep -v "^mode:" | grep -v "0.0%" | wc -l)
+
+          echo "🧪 Coverage: $covered/$total functions covered"
 
   lint:
     name: Run Linter (golangci-lint)
