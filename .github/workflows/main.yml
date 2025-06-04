@@ -25,12 +25,6 @@ jobs:
         run: |
           go test ./... -coverprofile=coverage.out
           go tool cover -func=coverage.out
-      
-      - name: Upload coverage badge
-        run: |
-          go install github.com/vladopajic/go-test-coverage@latest
-          go-test-coverage
-
 
   lint:
     name: Run Linter (golangci-lint)
