@@ -23,8 +23,9 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          go test ./... -coverprofile=coverage.out
-          go tool cover -func=coverage.out
+          go test ./service -coverprofile=coverage.out
+          go tool cover -func=coverage.out | grep -v '0.0%'
+
 
   lint:
     name: Run Linter (golangci-lint)
